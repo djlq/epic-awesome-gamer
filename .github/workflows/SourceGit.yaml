@@ -9,7 +9,7 @@ jobs:
   setup:
     env:
       EPIC_EMAIL: ${{ secrets.EPIC_EMAIL }} 
-      #TOKEN: ${{ secrets.PUSHTOKEN }}
+      TOKEN: ${{ secrets.PUSHTOKEN }}
       EPIC_PASSWORD: ${{ secrets.EPIC_PASSWORD }}
       FAKE_HASH: "Automated deployment @ $(date '+%Y-%m-%d %H:%M:%S') Asia/Shanghai"
     runs-on: ubuntu-latest
@@ -48,6 +48,6 @@ jobs:
         git add .
         git commit -m "${{ env.FAKE_HASH }}" 
         git push -f
-    #- name: PUSHPLUS
-    #  run: |
-    #      python PUSHPLUS.py 
+    - name: PUSHPLUS
+      run: |
+        python PUSHPLUS.py 
